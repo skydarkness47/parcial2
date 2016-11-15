@@ -12,6 +12,7 @@ $usuario =json_decode($DatosPorPost);
 $token["mail"]=$usuario->mail;
 	$token["clave"]=$usuario->clave;
 	$token["nombre"]=$usuario->nombre;
+	$token["perfil"]=$usuario->perfil;
 
  
 	$token["iat"]=time();//momento de creacion

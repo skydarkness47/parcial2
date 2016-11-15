@@ -4,6 +4,8 @@ angular
 
 this.borrar = borrar;
 this.TraerTodos = TraerTodos;
+this.TraerTodosUsuarios = TraerTodosUsuarios;
+this.borrarUsuario = borrarUsuario;
  function TraerTodos(){
       return $http.get(Url + "productos/traertodos/")
       .then(function(respuesta) { 
@@ -18,7 +20,16 @@ this.TraerTodos = TraerTodos;
 function borrar(obj){
       return $http.delete(Url + "productos/borrar/" + obj)
       .then(function(respuesta) { 
-        console.log("respuesta");
+       return respuesta.data
+
+    })      // FIN DEL RETURN
+
+
+}
+
+ function TraerTodosUsuarios(){
+      return $http.get(Url + "usuarios/traertodos/")
+      .then(function(respuesta) { 
        return respuesta.data
 
     })      // FIN DEL RETURN
@@ -27,5 +38,14 @@ function borrar(obj){
 }
 
 
+ function borrarUsuario(obj){
+  console.log(obj);
+      return $http.get(Url + "usuarios/borrar/" + obj)
+      .then(function(respuesta) { 
+       return respuesta.data
 
+    })      // FIN DEL RETURN
+
+
+}
   })//cierro factory

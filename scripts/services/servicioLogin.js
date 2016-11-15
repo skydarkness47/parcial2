@@ -20,6 +20,7 @@ var Url = factoryRutas.ApiUrl;
 
     return $http.get(Url +"/usuarios/traer/"+ objeto)
       .then(function(respuesta) { 
+        console.info(respuesta);
        return respuesta.data
 
     })

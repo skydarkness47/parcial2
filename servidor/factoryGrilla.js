@@ -3,6 +3,8 @@ angular
 var objeto = {};
    objeto.TraerTodos= TraerTodos;
   objeto.borrar= borrar;
+  objeto.TraerTodosUsuarios= TraerTodosUsuarios;
+  objeto.borrarUsuario = borrarUsuario;
    return objeto;
 
    function TraerTodos()
@@ -15,5 +17,17 @@ var objeto = {};
    {
     console.log("hola");
       return  Grilla.borrar(obj);
+   }
+
+ function borrarUsuario(obj)
+   {
+ 
+      return  Grilla.borrarUsuario(obj);
+   }
+
+   function TraerTodosUsuarios()
+   {
+      return Grilla.TraerTodosUsuarios();
+
    }
   })//cierro factory

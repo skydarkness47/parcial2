@@ -8,6 +8,7 @@ class Usuario
 	public $nombre;
 	public $clave;
 	public $id;
+	public $perfil;
 //--------------------------------------------------------------------------------//
 
 //--------------------------------------------------------------------------------//
@@ -58,18 +59,18 @@ class Usuario
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		//$consulta =$objetoAccesoDato->RetornarConsulta("select * from persona");
-	$consulta =$objetoAccesoDato->RetornarConsulta("select id,mail as mail,nombre as nombre, clave as clave  from usuarios");
+	$consulta =$objetoAccesoDato->RetornarConsulta("select id,mail as mail,nombre as nombre, clave as clave,perfil as perfil  from usuarios");
 		$consulta->execute();			
 		$arrEmpleado= $consulta->fetchAll(PDO::FETCH_CLASS, "Usuario");	
 		return $arrEmpleado;
 	}
 	
-	public static function BorrarPersona($idParametro)
+	public static function BorrarUsuario($idParametro)
 	{	
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		//$consulta =$objetoAccesoDato->RetornarConsulta("delete from persona	WHERE id=:id");	
 		$consulta =$objetoAccesoDato->RetornarConsulta("delete 
-				from persona 				
+				from usuarios 				
 				WHERE id=:id");	
 		$consulta->bindValue(':id',$idParametro, PDO::PARAM_INT);		
 		$consulta->execute();

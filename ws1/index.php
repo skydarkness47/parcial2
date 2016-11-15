@@ -92,6 +92,29 @@ $app->get('/usuarios/traer/{objeto}', function ($request, $response, $args) {
  
 });
 
+$app->get('/usuarios/borrar/{objeto}', function ($request, $response, $args) {
+
+  $usuario=json_decode($args['objeto']);
+  
+ 
+  $usuarioBuscado=Usuario::BorrarUsuario($usuario);
+ 
+ return json_encode($usuarioBuscado);
+   
+ 
+});
+
+$app->get('/usuarios/traertodos/', function ($request, $response, $args) {
+
+
+  $datos=Usuario::TraerTodosLosUsuarios();
+ 
+ return json_encode($datos);
+   
+ 
+});
+
+
 
 
 $app->post('/productos/alta/{objeto}', function ($request, $response, $args) {
