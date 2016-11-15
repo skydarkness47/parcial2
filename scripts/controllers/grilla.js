@@ -29,8 +29,16 @@ var datos;
     $scope.borrar = function(row){
           factoryGrilla.borrar(row.id).
     then(function(respuesta){
-      console.log(respuesta);
-      $state.go("grilla");
+      
+    factoryGrilla.TraerTodos().
+    then(function(respuesta){
+ $scope.gridOptions.data = respuesta;
+    },
+      function(error){
+        console.info(error);
+      }
+      );
+      
     },
       function(error){
         console.info(error);
