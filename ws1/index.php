@@ -104,6 +104,20 @@ $app->get('/usuarios/borrar/{objeto}', function ($request, $response, $args) {
  
 });
 
+
+
+$app->get('/usuarios/modificar/{objeto}', function ($request, $response, $args) {
+
+  $usuario=json_decode($args['objeto']);
+  
+ 
+  $usuarioBuscado=Usuario::ModificarUsuario($usuario);
+ 
+ return json_encode($usuarioBuscado);
+   
+ 
+});
+
 $app->get('/usuarios/traertodos/', function ($request, $response, $args) {
 
 

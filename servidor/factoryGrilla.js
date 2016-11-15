@@ -5,6 +5,7 @@ var objeto = {};
   objeto.borrar= borrar;
   objeto.TraerTodosUsuarios= TraerTodosUsuarios;
   objeto.borrarUsuario = borrarUsuario;
+  objeto.ModificarUsuario = ModificarUsuario;
    return objeto;
 
    function TraerTodos()
@@ -29,5 +30,9 @@ var objeto = {};
    {
       return Grilla.TraerTodosUsuarios();
 
+   }
+   function ModificarUsuario(obj)
+   {
+      return Grilla.ModificarUsuario(obj);
    }
   })//cierro factory
