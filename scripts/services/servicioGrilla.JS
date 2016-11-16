@@ -6,6 +6,7 @@ this.borrar = borrar;
 this.TraerTodos = TraerTodos;
 this.TraerTodosUsuarios = TraerTodosUsuarios;
 this.borrarUsuario = borrarUsuario;
+this.ModificarUsuario=ModificarUsuario;
  function TraerTodos(){
       return $http.get(Url + "productos/traertodos/")
       .then(function(respuesta) { 
@@ -15,7 +16,7 @@ this.borrarUsuario = borrarUsuario;
     })      // FIN DEL RETURN
 
 
-}
+} // FIN DE TRTAER TODOS LOS PRODUCTOS
 
 function borrar(obj){
       return $http.delete(Url + "productos/borrar/" + obj)
@@ -25,7 +26,7 @@ function borrar(obj){
     })      // FIN DEL RETURN
 
 
-}
+} // FIN DE BORRAR USUARIO FIN DE BORRAR PRODUCTOS
 
  function TraerTodosUsuarios(){
       return $http.get(Url + "usuarios/traertodos/")
@@ -35,7 +36,7 @@ function borrar(obj){
     })      // FIN DEL RETURN
 
 
-}
+}// FIN DE TRAER TODOS
 
 
  function borrarUsuario(obj){
@@ -47,5 +48,20 @@ function borrar(obj){
     })      // FIN DEL RETURN
 
 
-}
+}// FIN DE BORRAR USUARIO
+
+
+ function ModificarUsuario(obj){
+console.log(obj);
+      return $http.post(Url + "usuarios/modificar/" + obj)
+      .then(function(respuesta) {
+      console.info(respuesta); 
+       return respuesta.data
+
+    })      // FIN DEL RETURN
+
+
+}// FIN DE BORRAR USUARIO
+
+
   })//cierro factory

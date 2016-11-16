@@ -14,6 +14,7 @@ $c = new \Slim\Container($configuration);
 $app = new \Slim\App($c);
 
 
+
 $app->get('/', function ($request, $response, $args) {
     $response->write("Welcome to Slim!");
     return $response;
@@ -74,6 +75,18 @@ $app->post('/usuarios/alta/{objeto}', function ($request, $response, $args) {
   
  
   $usuarioBuscado=Usuario::InsertarUsuario($usuario);
+ 
+ return json_encode($usuarioBuscado);
+   
+ 
+});
+
+
+$app->post('/usuarios/modificar/{obj}', function ($request, $response, $args) {
+
+  $usuario=json_decode($args['obj']);
+  
+  $usuarioBuscado=Usuario::ModificarUsuario($usuario);
  
  return json_encode($usuarioBuscado);
    
