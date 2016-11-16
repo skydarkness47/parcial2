@@ -13,6 +13,19 @@ if($auth.isAuthenticated())
 console.info($scope.usuario);
 
 
+factoryGrilla.TraerTodosUsuarios()
+  .then(
+      function(respuesta){
+        console.info(respuesta);
+          $scope.listaUser = respuesta;
+
+      },
+      function(error){
+        console.info(error);
+      }
+
+      );
+
 $scope.Deslogearse = function(){
 
 	$auth.logout();
@@ -27,7 +40,8 @@ $scope.titulo = "Configuracion Directiva";
     .then(
       function(respuesta){
         console.info(respuesta);
-        $scope.Listado = respuesta;
+          $scope.listaProd = respuesta;
+
       },
       function(error){
         console.info(error);
