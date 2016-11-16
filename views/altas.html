@@ -92,16 +92,45 @@
 </div>
 
 
-<div>
+<div ng-if="usuario.perfil != 'administrador'">
   <h3>ALTAS DE PRODUCTO</h3>
 <form id="FormIngreso" name="FormIngreso" enctype="multipart/form-data" >
-    <div>
       <input type="text"  placeholder="ingrese nombre de producto" ng-model="producto.nombre" required></input><br>
-
       <input type="button" value="Login" ng-Click="AltaProducto()" ng-disabled="FormIngreso.$invalid"></input>
+ </div>
+
+
+ <div ng-if="usuario.perfil == 'administrador'">
+  <h3>ALTAS DE USUARIO</h3>
+<form id="FormIngreso" name="FormIngreso" enctype="multipart/form-data" >
+     <input type="email"  placeholder="ingrese  mail" ng-model="user.mail" required></input><br>
+      <input type="text"  placeholder="ingrese nombre" ng-model="user.nombre" required></input><br>
+      <input type="clave"  placeholder="ingrese nombre mail" ng-model="user.clave" required></input><br>
    
+   <label>
+    <input type="radio" ng-model="user.perfil" value="administrador">
+    administrador
+  </label><br/>
+  <label>
+    <input type="radio" ng-model="user.perfil" ng-value="comprador">
+    comprador
+  </label><br/>
+  <label>
+    <input type="radio" ng-model="user.perfil" value="vendedor">
+    vendedor
+  </label><br/>
+
+       <!--  <select name="multipleSelect"  ng-model="perfil" required >
+          <option ng-model="comprador" >comprador</option>
+          <option ng-model="vendedor">vendedor</option>
+         <option ng-model="administrador">administrador</option> -->
+</select>
+      <input type="button" value="Alta de usuario" ng-disabled="FormIngreso.$invalid" ng-Click="AltaUsuario()" ></input>
+   
+ </div>
+
+
  
- 
-    </div>
+  
 
 

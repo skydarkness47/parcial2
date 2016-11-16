@@ -3,8 +3,8 @@ angular
         
 var Url = factoryRutas.ApiUrl;
 
-  this.Insertar = Insertar;
-  function Insertar(objeto){
+  this.InsertarUsuario = InsertarUsuario;
+  function InsertarUsuario(objeto){
 console.log(objeto);
     return $http.post(Url + "usuarios/alta/" + objeto)
       .then(function(respuesta) { 
@@ -18,7 +18,7 @@ console.log(objeto);
     this.TraerObjeto = TraerObjeto;
   function TraerObjeto(objeto){
 
-    return $http.get(Url +"/usuarios/validar/"+ objeto)
+    return $http.get(Url + "usuarios/validar/"+ objeto)
       .then(function(respuesta) { 
       console.info(respuesta.data);    
        return respuesta.data
