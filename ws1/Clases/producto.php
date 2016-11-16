@@ -6,6 +6,7 @@ class Producto
 //--ATRIBUTOS
 	public $id;
 	public $nombre;
+	public $precio;
 	
 //--------------------------------------------------------------------------------//
 
@@ -56,7 +57,7 @@ class Producto
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		//$consulta =$objetoAccesoDato->RetornarConsulta("select * from persona");
-	$consulta =$objetoAccesoDato->RetornarConsulta("select id,nombre as nombre from producto");
+	$consulta =$objetoAccesoDato->RetornarConsulta("select id,nombre as nombre,precio as precio from producto");
 		$consulta->execute();			
 		$arrEmpleado= $consulta->fetchAll(PDO::FETCH_CLASS, "Producto");	
 		return $arrEmpleado;
@@ -100,8 +101,10 @@ class Producto
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		//$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into producto (nombre,apellido,dni,foto)values(:nombre,:apellido,:dni,:foto)");
-		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into producto (nombre)values(:nombre)");
+		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into producto (nombre,precio)values(:nombre,:precio)");
 		$consulta->bindValue(':nombre',$producto->nombre, PDO::PARAM_STR);
+		$consulta->bindValue(':precio',$producto->precio, PDO::PARAM_INT);
+
 		$consulta->execute();		
 		return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	

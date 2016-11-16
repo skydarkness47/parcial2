@@ -46,10 +46,10 @@ $authProvider.tokenRoot = null;
       templateUrl: 'views/grilla.html',
       controller:'grillaCtrl'
     })
-    .state('factoryConServicio', {
-      url: '/factoryConServicio',
-      templateUrl: 'views/config.html',
-      controller:'factoryConServicioCtrl'
+    .state('grillaDirectiva', {
+      url: '/grillaDirectiva',
+      templateUrl: 'views/grillaDirectiva.html',
+      controller:'grillaDirectivaCtrl'
     })
     .state('exportar', {
       url: '/exportar',

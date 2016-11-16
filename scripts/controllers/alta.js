@@ -5,6 +5,7 @@ angular
         console.info($scope.pepe);
         $scope.usuario = {};
         $scope.user = {};
+        $scope.producto= {};
         $scope.user.id="no";
         if ($auth.isAuthenticated()) {
             $scope.nada = "algo";
@@ -23,7 +24,7 @@ angular
 
         $scope.AltaProducto = function() {
             $scope.producto = JSON.stringify($scope.producto);
-            factoryUser.InsertarUsuario($scope.producto)
+            factoryProducto.Insertar($scope.producto)
                 .then(function(respuesta) {
                     console.log(respuesta);
                     $state.go("grilla");

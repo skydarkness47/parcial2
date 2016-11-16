@@ -191,7 +191,10 @@ $('<input type="password" required data-bind="value:' + options.field + '"/>').a
                 }, {
                     field: 'nombre',
                     name: 'nombre'
-                }
+                },{
+                field: 'precio',
+                name: 'precio'
+            }
 
             ];
         }
@@ -205,6 +208,9 @@ $('<input type="password" required data-bind="value:' + options.field + '"/>').a
                 field: 'nombre',
                 name: 'nombre'
             }, {
+                field: 'precio',
+                name: 'precio'
+            },{
                 width: 100,
                 cellTemplate: "<button ng-Click='grid.appScope.borrar(row.entity)'>BORRAR",
                 name: "BORRAR"

@@ -8,6 +8,7 @@ var Url = factoryRutas.ApiUrl;
 console.log(objeto);
     return $http.post(Url + "productos/alta/" + objeto)
       .then(function(respuesta) { 
+        console.info(respuesta);
        return respuesta.data
 
     })      // FIN DEL RETURN

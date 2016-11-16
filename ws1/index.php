@@ -10,6 +10,7 @@ $configuration = [
         'displayErrorDetails' => true,
     ],
 ];
+
 $c = new \Slim\Container($configuration);
 $app = new \Slim\App($c);
 
@@ -20,21 +21,6 @@ $app->get('/', function ($request, $response, $args) {
     return $response;
 });
 
-$app->get('/personas[/]', function ($request, $response, $args) {
-    $datos=Persona::TraerTodasLasPersonas();
-    for ($i = 0; $i < count($datos); $i++ ){
-        $datos[$i]->foto=json_decode($datos[$i]->foto);
-    }
-    return $response->write(json_encode($datos));
-});
-
-$app->get('/clientes[/]', function ($request, $response, $args) {
-    $datos=Cliente::TraerTodosLosClientes();
-    for ($i = 0; $i < count($datos); $i++ ){
-        $datos[$i]->foto=json_decode($datos[$i]->foto);
-    }
-    return $response->write(json_encode($datos));
-});
 
 
 
@@ -121,7 +107,6 @@ $app->get('/usuarios/traertodos/', function ($request, $response, $args) {
 $app->post('/productos/alta/{objeto}', function ($request, $response, $args) {
 
   $producto=json_decode($args['objeto']);
-  
  
   $usuarioBuscado=Producto::Insertar($producto);
  
