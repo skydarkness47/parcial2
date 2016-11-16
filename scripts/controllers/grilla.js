@@ -130,7 +130,10 @@ angular
             $scope.gridOptions.columnDefs = columAdmin();
         }
 
-
+function passwordEditor(clave, options)
+{
+$('<input type="password" required data-bind="value:' + options.field + '"/>').appendTo(clave);
+};
 
 
         function columAdmin() {
@@ -153,16 +156,22 @@ angular
                     field: 'nombre',
                     name: 'nombre'
                 },
-                 {
-                    field: 'clave',
-                    name: 'clave',
-                    
-                },
+                 {  field:'clave',
+                     key: 'clave',
+                      type: 'clave',
+                      templateOptions: {
+                        type: 'password',
+                        label: 'Password',
+                        placeholder: 'Password'  
+                        }             
 
+                },
                 {
                     width: 100,
+                    command: "destroy",
                     cellTemplate: "<button ng-Click='grid.appScope.borrarUsuario(row.entity)'>BORRAR",
                     name: "BORRAR"
+
 
                 },{
                 width: 100,
@@ -172,6 +181,8 @@ angular
             }
             ];
         }
+
+
 
         function columComprador() {
             return [{
