@@ -6,7 +6,6 @@ this.borrar = borrar;
 this.TraerTodos = TraerTodos;
 this.TraerTodosUsuarios = TraerTodosUsuarios;
 this.borrarUsuario = borrarUsuario;
-this.ModificarUsuario = ModificarUsuario;
  function TraerTodos(){
       return $http.get(Url + "productos/traertodos/")
       .then(function(respuesta) { 
@@ -49,16 +48,4 @@ function borrar(obj){
 
 
 }
-
- function ModificarUsuario(obj){
-  console.log(obj);
-      return $http.get(Url + "usuarios/modificar/" + obj)
-      .then(function(respuesta) { 
-       return respuesta.data
-
-    })      // FIN DEL RETURN
-
-
-}
-
   })//cierro factory

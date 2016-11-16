@@ -78,22 +78,20 @@ class Usuario
 		
 	}
 	
-	public static function ModificarUsuario($usuario)
+	public static function ModificarPersona($persona)
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("
-				update usuarios 
+				update persona 
 				set nombre=:nombre,
-				clave=:clave,
-				mail=:mail,
-				perfil=:perfil
+				apellido=:apellido,
+				foto=:foto
 				WHERE id=:id");
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
-			$consulta->bindValue(':id',$usuario->id, PDO::PARAM_INT);
-			$consulta->bindValue(':nombre',$usuario->nombre, PDO::PARAM_STR);
-			$consulta->bindValue(':mail', $usuario->mail, PDO::PARAM_STR);
-			$consulta->bindValue(':perfil', $usuario->perfil, PDO::PARAM_STR);
-			$consulta->bindValue(':clave', $usuario->clave, PDO::PARAM_STR);
+			$consulta->bindValue(':id',$persona->id, PDO::PARAM_INT);
+			$consulta->bindValue(':nombre',$persona->nombre, PDO::PARAM_STR);
+			$consulta->bindValue(':apellido', $persona->apellido, PDO::PARAM_STR);
+			$consulta->bindValue(':foto', $persona->foto, PDO::PARAM_STR);
 			return $consulta->execute();
 	}
 

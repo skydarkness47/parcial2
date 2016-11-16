@@ -57,30 +57,12 @@ var datos;
  }
 
 
-    $scope.ModificarUsuario = function(row){
-          factoryGrilla.ModificarUsuario(row).
-            then(function(respuesta){
-                 factoryGrilla.TraerTodos().
-                then(function(respuesta){
-           $scope.gridOptions.data = respuesta;
-         },
-             function(error){
-                  console.info(error);
-         }
-      );
-      
-      },
-         function(error){
-             console.info(error);
-    }
-  );
- }
 
 
     $scope.borrarUsuario = function(row){
           factoryGrilla.borrarUsuario(row.id).
             then(function(respuesta){
-
+             
       
                  factoryGrilla.TraerTodosUsuarios().
                 then(function(respuesta){
@@ -140,9 +122,7 @@ var datos;
 
               { width: 100, cellTemplate:"<button ng-Click='grid.appScope.borrarUsuario(row.entity)'>BORRAR", name:"BORRAR"
                
-              },
-  { width: 100, cellTemplate:"<button ng-Click='grid.appScope.ModificarUsuario(row.entity)'>MODIFICAR", name:"MODIFICAR"
-    }
+              }
               ];
           }
 
