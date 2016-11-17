@@ -9,7 +9,7 @@
 			<td>{{prod.id}}</td>
 			<td>{{prod.precio}}</td>
 				<td ng-if="per!='comprador'"><input type="button"  value="Modificar" ng-click="IrModificarP(prod)"></td>
-				<td ng-if="per!='comprador'"><input type="button"  value="Eliminar" ng-click="IrEliminarP(prod)"></td>
+				<td ng-if="per!='comprador'"><input type="button"  value="Eliminar" ng-click="borrar(prod.id)"></td>
 			<td></td>
 		</tr>
 </table>

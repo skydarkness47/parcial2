@@ -12,8 +12,8 @@
 			<td>{{user.nombre}}</td>
 			<td>{{user.mail}}</td>
 			<td>{{user.perfil}}</td>
-			<td><input type="button"  value="Modificar" ng-click="IrModificar(user)"></td>
-			<td><input type="button"  value="Eliminar" ng-click="IrEliminar(user)"></td>
+			<td><input type="button"  value="Modificar" ng-click="Modificar(user.id)"></td>
+			<td><input type="button"  value="Eliminar" ng-click="borrarUsuario(user.id)"></td>
 			<td></td>
 		</tr>
 </table>

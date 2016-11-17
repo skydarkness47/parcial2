@@ -10,13 +10,13 @@ var objeto = {};
 
    function TraerTodos()
    {
-    console.log("hola");
       return  Grilla.TraerTodos();
    }
 
    function borrar(obj)
    {
-    console.log("hola");
+
+    console.log("borrar producto", obj);
       return  Grilla.borrar(obj);
    }
 

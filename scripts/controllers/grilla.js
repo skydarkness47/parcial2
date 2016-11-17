@@ -37,9 +37,9 @@ angular
 
 
         $scope.borrar = function(row) {
+            console.info("row");
             factoryGrilla.borrar(row.id).
             then(function(respuesta) {
-
                     factoryGrilla.TraerTodos().
                     then(function(respuesta) {
                             $scope.gridOptions.data = respuesta;

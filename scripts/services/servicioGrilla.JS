@@ -10,7 +10,6 @@ this.ModificarUsuario=ModificarUsuario;
  function TraerTodos(){
       return $http.get(Url + "productos/traertodos/")
       .then(function(respuesta) { 
-        console.log("respuesta");
        return respuesta.data
 
     })      // FIN DEL RETURN
@@ -19,6 +18,7 @@ this.ModificarUsuario=ModificarUsuario;
 } // FIN DE TRTAER TODOS LOS PRODUCTOS
 
 function borrar(obj){
+  console.log("borrar producto",obj);
       return $http.delete(Url + "productos/borrar/" + obj)
       .then(function(respuesta) { 
        return respuesta.data
